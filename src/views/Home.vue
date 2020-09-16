@@ -1,8 +1,8 @@
 <template>
   <div class="home">
     <button @click="sao">扫一扫</button>
-    <video ref="video" id="video" v-show="!visible" autoplay style="width:1280px;height:720px;"></video>
-    <canvas ref="canvas" id="canvas" v-show="visible" width="1280" height="720"></canvas>
+    <video ref="video" id="video" autoplay style="width:800px;height:800px;"></video>
+    <canvas ref="canvas" id="canvas"  width="800" height="800"></canvas>
   </div>
 </template>
 <script>

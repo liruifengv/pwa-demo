@@ -12,7 +12,7 @@
             "type": "image/png"
         }
     ],
-    "start_url": "/pwa-demo/dist/",
+    "start_url": "/pwa-demo/dist/#/",
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#1976d2",

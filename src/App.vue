@@ -1,9 +1,9 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
+      <router-link to="/">扫一扫</router-link> |
       <router-link to="/qrcode">qrcode</router-link> |
-      <router-link to="/sao">扫一扫</router-link>
+      <router-link to="/Home">生成二维码</router-link>
     </div>
     <router-view/>
   </div>

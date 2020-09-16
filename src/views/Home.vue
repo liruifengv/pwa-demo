@@ -29,33 +29,39 @@ export default {
   },
   methods: {
     sao () {
-      if (navigator.mediaDevices.getUserMedia || navigator.getUserMedia || navigator.mozGetUserMedia || navigator.webkitGetUserMedia) {
-        this.getUserMedia({ video: { width: 480, height: 320 } }, this.success, this.error)
-      } else {
-        console.log('you bower id not getUserMedia')
+      const self = this
+      const option = {
+        width: 1280,
+        height: 720
       }
-    },
-    getUserMedia (constrains, success, error) {
-      if (navigator.mediaDevices.getUserMedia) {
-        navigator.mediaDevices.getUserMedia(constrains).then(success).catch(error)
-      } else if (navigator.webkitGetUserMedia) {
-        navigator.webkitGetUserMedia(constrains, success.error)
-      } else if (navigator.mozGetUserMedia) {
-        navigator.mozkitGetUserMedia(constrains, success.error)
+
+      if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+        navigator.mediaDevices.getUserMedia({
+          video: option
+        }).then(function (stream) {
+          // 将视频流实时播放在video
+          self.$refs.video.srcObject = stream
+          // 截取video内容
+          setTimeout(() => {
+            self.screenShot()
+          }, 2000)
+        }).catch(function (err) {
+          alert(err)
+        })
       } else if (navigator.getUserMedia) {
-        navigator.getUserMedia(constrains, success, error)
+        navigator.getUserMedia({
+          video: true
+        }).then(function (stream) {
+          self.$refs.video.srcObject = stream
+          setTimeout(() => {
+            self.screenShot()
+          }, 2000)
+        }).catch(function (err) {
+          alert(err)
+        })
+      } else {
+        alert('浏览器不支持getUserMedia')
       }
-    },
-    success (stream) {
-      const CompatibleUrl = window.URL || window.webkitURL
-      this.$refs.video.src = CompatibleUrl.createObjectURL(stream)
-      this.$refs.video.play()
-      setTimeout(() => {
-        this.screenShot()
-      }, 2000)
-    },
-    error (error) {
-      console.log(error.name, error.message)
     },
     screenShot () {
       const $canvas = this.$refs.canvas

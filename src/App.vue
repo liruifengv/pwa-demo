@@ -2,12 +2,29 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/qrcode">qrcode</router-link> |
+      <router-link to="/sao">扫一扫</router-link>
     </div>
     <router-view/>
   </div>
 </template>
+<script>
+// @ is an alias to /src
+export default {
+  name: 'APP',
+  data () {
+    return {
+    }
+  },
+  components: {
 
+  },
+  mounted () {
+  },
+  methods: {
+  }
+}
+</script>
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

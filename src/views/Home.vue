@@ -32,8 +32,8 @@ export default {
       console.log('点击扫一扫')
       const self = this
       const option = {
-        width: 1280,
-        height: 720
+        width: 800,
+        height: 800
       }
 
       if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
@@ -72,7 +72,7 @@ export default {
       const $video = this.$refs.video
       const ctx = $canvas.getContext('2d')
       console.log('截图2')
-      ctx.drawImage($video, 0, 0, 480, 320)
+      ctx.drawImage($video, 0, 0, 800, 800)
       console.log('drawImage')
       const base64 = $canvas.toDataURL('images/png')
       // 截图成功对图片进行识别

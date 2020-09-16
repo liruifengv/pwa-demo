@@ -48,8 +48,8 @@ export default {
     },
     success (stream) {
       const CompatibleUrl = window.URL || window.webkitURL
-      this.$resf.video.src = CompatibleUrl.createObjectURL(stream)
-      this.$resf.video.play()
+      this.$refs.video.src = CompatibleUrl.createObjectURL(stream)
+      this.$refs.video.play()
       setTimeout(() => {
         this.screenShot()
       }, 2000)
@@ -58,8 +58,8 @@ export default {
       console.log(error.name, error.message)
     },
     screenShot () {
-      const $canvas = this.$resf.canvas
-      const $video = this.$resf.video
+      const $canvas = this.$refs.canvas
+      const $video = this.$refs.video
       const ctx = $canvas[0].getContext('2d')
       ctx.drawImage($video[0], 0, 0, 480, 320)
       const base64 = $canvas[0].toDataURL('images/png')

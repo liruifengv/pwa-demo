@@ -1,31 +1,29 @@
 <template>
   <div class="home">
     <button @click="sao">扫一扫</button>
-    <div id="qrcode"></div>
     <video ref="video" id="video" autoplay style="width:480px;height:320px;"></video>
     <canvas ref="canvas" id="canvas" width="480" height="320"></canvas>
   </div>
 </template>
-
 <script>
-import QRCode from 'qrcodejs2'
+/* eslint-disable */
+import { qrcode } from '@/assets/reqrcode.js'
 
 // @ is an alias to /src
 export default {
   name: 'Home',
   data () {
     return {
-      qrcode: null
     }
   },
   components: {
 
   },
   mounted () {
-    this.qrcode = new QRCode(document.getElementById('qrcode'), {
-      width: 100,
-      height: 100
-    })
+    console.log('■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■')
+    console.log('qrcode:', qrcode)
+    console.log('qrcode.decode', qrcode.decode)
+    console.log('■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■')
   },
   methods: {
     sao () {
@@ -83,8 +81,8 @@ export default {
       console.log('decodeQrcode', base64)
       const self = this
       // $('#screenshot_img').attr('src', base64)
-      this.qrcode.decode(base64)
-      this.qrcode.callback = function (imgMsg) {
+      qrcode.decode(base64)
+      qrcode.callback = function (imgMsg) {
         if (imgMsg === 'error decoding QR Code') {
           console.log('decodeQrcode failed', imgMsg)
           setTimeout(function () {

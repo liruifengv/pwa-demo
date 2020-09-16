@@ -15,10 +15,6 @@ module.exports = {
     }
   },
   pwa: {
-    themeColor: manifestJSON.theme_color,
-    workboxOptions: {
-      skipWaiting: true,
-      clientsClaim: true
-    }
+    themeColor: manifestJSON.theme_color
   }
 }

@@ -12,10 +12,10 @@
             "type": "image/png"
         }
     ],
-    "start_url": "/pwa-demo/dist/#/",
+    "start_url": "/",
     "display": "standalone",
     "background_color": "#fff",
-    "theme_color": "#ffb95c",
+    "theme_color": "#ff0000",
     "gcm_sender_id": "my_gcm_sender_id",
     "gcm_user_visible_only": true
 }

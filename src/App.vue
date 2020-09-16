@@ -20,6 +20,17 @@ export default {
 
   },
   mounted () {
+    window.addEventListener('beforeinstallprompt', function (e) {
+      e.userChoice.then(function (choiceResult) {
+        if (choiceResult.outcome === 'accept') {
+          console.log('用户同意安装')
+          // 用户将站点添加至桌面
+        } else {
+          console.log('用户取消安装')
+          // 用户取消安装
+        }
+      })
+    })
   },
   methods: {
   }

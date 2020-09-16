@@ -1,8 +1,8 @@
 <template>
   <div class="home">
     <button @click="sao">扫一扫</button>
-    <video ref="video" id="video" autoplay style="width:480px;height:320px;"></video>
-    <canvas ref="canvas" id="canvas" width="480" height="320"></canvas>
+    <video ref="video" id="video" v-show="!visible" autoplay style="width:1280px;height:720px;"></video>
+    <canvas ref="canvas" id="canvas" v-show="visible" width="1280" height="720"></canvas>
   </div>
 </template>
 <script>
@@ -14,6 +14,7 @@ export default {
   name: 'Home',
   data () {
     return {
+      visible: false
     }
   },
   components: {
@@ -27,6 +28,7 @@ export default {
   },
   methods: {
     sao () {
+      this.visible = false
       console.log('点击扫一扫')
       const self = this
       const option = {
@@ -73,12 +75,10 @@ export default {
       ctx.drawImage($video, 0, 0, 480, 320)
       console.log('drawImage')
       const base64 = $canvas.toDataURL('images/png')
-      console.log('base64', base64)
       // 截图成功对图片进行识别
       this.decodeQrcode(base64)
     },
     decodeQrcode (base64) {
-      console.log('decodeQrcode', base64)
       const self = this
       // $('#screenshot_img').attr('src', base64)
       qrcode.decode(base64)
@@ -90,6 +90,7 @@ export default {
             self.screenShot()
           }, 2000)
         } else {
+          self.visible = true
           console.log('decodeQrcode Complete', imgMsg)
           alert(imgMsg)
           window.location.href = imgMsg

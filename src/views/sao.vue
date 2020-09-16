@@ -40,8 +40,8 @@ export default {
   },
   mounted () {
     this.qrcode = new QRCode(document.getElementById('qrcode'), {
-      width: 100,
-      height: 100
+      width: 200,
+      height: 200
     })
   },
   methods: {

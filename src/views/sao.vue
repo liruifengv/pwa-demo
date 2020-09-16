@@ -25,7 +25,7 @@
 // @ is an alias to /src
 import QRCode from 'qrcodejs2'
 export default {
-  name: 'Home',
+  name: 'sao',
   data () {
     return {
       qrcode: null,

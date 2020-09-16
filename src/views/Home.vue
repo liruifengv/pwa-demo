@@ -70,11 +70,11 @@ export default {
       console.log('截图1')
       const $canvas = this.$refs.canvas
       const $video = this.$refs.video
-      const ctx = $canvas[0].getContext('2d')
+      const ctx = $canvas.getContext('2d')
       console.log('截图2')
-      ctx.drawImage($video[0], 0, 0, 480, 320)
+      ctx.drawImage($video, 0, 0, 480, 320)
       console.log('drawImage')
-      const base64 = $canvas[0].toDataURL('images/png')
+      const base64 = $canvas.toDataURL('images/png')
       console.log('base64', base64)
       // 截图成功对图片进行识别
       this.decodeQrcode(base64)

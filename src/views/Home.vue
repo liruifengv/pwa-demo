@@ -87,6 +87,7 @@ export default {
     sao () {
       this.visible = false
       console.log('点击扫一扫')
+      console.log('新版')
       const self = this
       const option = {
         width: 800,

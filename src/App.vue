@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div id="nav">
+    <div  class="no-print" id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/qrcode">qrcode</router-link> |
       <router-link to="/sao">扫一扫</router-link>
